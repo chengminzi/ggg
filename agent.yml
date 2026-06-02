@@ -1,0 +1,720 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 健康助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:0.4.2@21195ee1321849e0a7d4b3f6b2fd8c2be23ea6c7182e1b444ecc4c1711b52468
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1780239336212-source-1780239512047-target
+      selected: false
+      source: '1780239336212'
+      sourceHandle: source
+      target: '1780239512047'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: question-classifier
+      id: 1780239512047-source-1780239925968-target
+      selected: false
+      source: '1780239512047'
+      sourceHandle: source
+      target: '1780239925968'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1780239925968-1-1780239947214-target
+      selected: false
+      source: '1780239925968'
+      sourceHandle: '1'
+      target: '1780239947214'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1780239925968-2-1780239959789-target
+      selected: false
+      source: '1780239925968'
+      sourceHandle: '2'
+      target: '1780239959789'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1780239925968-1780239937554-1780239973713-target
+      selected: false
+      source: '1780239925968'
+      sourceHandle: '1780239937554'
+      target: '1780239973713'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1780239959789-source-1780240567913-target
+      selected: false
+      source: '1780239959789'
+      sourceHandle: source
+      target: '1780240567913'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1780239947214-source-1780240567913-target
+      selected: false
+      source: '1780239947214'
+      sourceHandle: source
+      target: '1780240567913'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: variable-aggregator
+      id: 1780239973713-source-1780240567913-target
+      selected: false
+      source: '1780239973713'
+      sourceHandle: source
+      target: '1780240567913'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1780240567913-source-1780240778324-target
+      source: '1780240567913'
+      sourceHandle: source
+      target: '1780240778324'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1780240778324-source-1780243492894-target
+      source: '1780240778324'
+      sourceHandle: source
+      target: '1780243492894'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1780243492894-source-1780243545915-target
+      source: '1780243492894'
+      sourceHandle: source
+      target: '1780243545915'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: text
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: text
+      height: 108
+      id: '1780239336212'
+      position:
+        x: 65.49031746654873
+        y: 215.31950791077293
+      positionAbsolute:
+        x: 65.49031746654873
+        y: 215.31950791077293
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1780239336212'
+          - text
+        model:
+          completion_params: {}
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 113b48cf-d647-4284-b907-e3b1b4dd85da
+          role: system
+          text: "你是一名健康管理系统的任务规划Agent。\n\n请判断用户问题涉及哪些领域：\n\nclass1：\n- 减肥\n- 增肌\n\
+            - 健身\n- 运动\n- 饮食\n- 营养\n- 蛋白质\n\nclass2：\n- 睡眠\n- 熬夜\n- 失眠\n- 作息\n\nclass3：\n\
+            - 焦虑\n- 压力\n- 情绪\n- 抑郁\n- 崩溃\n- 心理状态\n\n输出JSON：\n\n{\n \"health\": true,\n\
+            \ \"sleep\": false,\n \"mental\": false\n}\n\n不要解释。"
+        - id: 4312fa17-f6ff-47a8-aa89-7a1f64105cec
+          role: user
+          text: '{{#1780239336212.text#}}'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1780239512047'
+      position:
+        x: 360.6804920892272
+        y: 216
+      positionAbsolute:
+        x: 360.6804920892272
+        y: 216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        classes:
+        - id: '1'
+          label: CLASS 1
+          name: 健康
+        - id: '2'
+          label: CLASS 2
+          name: 睡眠
+        - id: '1780239937554'
+          label: CLASS 3
+          name: 心理
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        query_variable_selector:
+        - '1780239512047'
+        - text
+        selected: false
+        title: 问题分类器
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 219
+      id: '1780239925968'
+      position:
+        x: 663
+        y: 216
+      positionAbsolute:
+        x: 663
+        y: 216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 健康
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: e8d8bb4d-6ed0-4f3a-95af-bbbc1e62c877
+          role: system
+          text: '你是一名专业运动减肥顾问。
+
+            示例对话
+
+            用户：我身高180cm，想增肌，体重多少合适？
+
+            助手：根据你180cm的身高，建议先控制体脂率在15%-18%再增肌。
+
+            饮食建议：每天额外摄入300大卡，优先选择鸡胸肉150g+米饭100g+西兰花200g。
+
+            运动建议：采用推拉腿分化训练，深蹲4组x10次、卧推4组x10次、引体向上4组x8次。
+
+            职责：
+
+            1. 根据用户提供的信息分析体重情况不多问
+
+            2. 计算BMI（如果有身高和体重）
+
+            3. 制定详细，减脂或增肌方案比如无氧还是有氧还是拉伸，每天做几组
+
+            搜索健身知识，尽可能满足要求。
+
+            4. 提供详细的运动建议
+
+            5. 提供详细饮食建议，比如吃多少蔬菜，哪种蔬菜，摄入多少卡路里很重要！
+
+            原则：
+
+            - 使用已有信息直接回答
+
+            - 不要反复索要年龄、性别等资料
+
+            - 信息不足时给出通用建议
+
+            - 不讨论心理问题
+
+            - 不讨论睡眠问题
+
+            - 不进行医学诊断
+
+            如果已知：
+
+            身高
+
+            体重
+
+            性别
+
+            目标体重
+
+            请直接生成完整方案。
+
+
+            '
+        - id: dc5a335e-6214-43ab-ac89-f98d1acc859f
+          role: user
+          text: '{{#1780239336212.text#}}'
+        selected: false
+        title: LLM 2
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1780239947214'
+      position:
+        x: 964
+        y: 216
+      positionAbsolute:
+        x: 964
+        y: 216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 睡眠
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 54068dd3-f282-4f31-81ad-9a6e9b95504e
+          role: system
+          text: '你是一名专业睡眠顾问。
+
+            职责：
+
+            分析用户睡眠情况
+
+            判断可能存在的问题
+
+            提供睡眠改善建议
+
+            提供可执行方案
+
+            原则：
+
+            使用用户已提供的信息直接回答
+
+            不要反复追问资料
+
+            信息不足时给出通用建议
+
+            不讨论减肥、饮食、运动计划
+
+            不讨论心理问题
+
+            不进行医学诊断
+
+            如果用户提到：
+
+            熬夜
+
+            失眠
+
+            早醒
+
+            多梦
+
+            睡不着
+
+            睡眠浅
+
+            睡眠不足，根据用户说到的睡眠情况回答"作息建议""放松技巧"核心建议，请直接生成改善方案。
+
+            示例对话
+
+            用户：我我最经失眠睡不着，压力太大了
+
+            助手：根据你的描述，可能是因为情绪紧绷导致的失眠
+
+            建议：每天早上尽量晒点光、固定起床时间，把生物钟慢慢拉回来。
+
+            睡前减少刺激（手机、咖啡、情绪内容），用慢呼吸让身体从“警觉模式”降下来。'
+        - id: 28320364-c12f-428f-8dfa-64b99e024460
+          role: user
+          text: '{{#1780239336212.text#}}'
+        selected: false
+        title: LLM 3
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1780239959789'
+      position:
+        x: 964
+        y: 370
+      positionAbsolute:
+        x: 964
+        y: 370
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 心理
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: d02e6d21-e3a2-4817-aa8a-aafdcb1f82f5
+          role: system
+          text: "你是一名心理支持顾问。\n职责：\n识别用户是否存在明显情绪困扰\n提供温和的情绪支持，推测用户产生情绪困扰的原因在共情用户之后提出温和的，简单的建议，主要任务是倾听和理解对方的情绪。\n\
+            提供简单可执行的心理调节建议\n原则：\n仅在用户明确表达压力、焦虑、低落、崩溃、难过、自责等情绪时介入\n不主动将减肥、运动、饮食问题解释为心理问题\n\
+            不进行心理诊断\n不进行医学诊断\n不讨论具体运动计划\n不讨论热量、减肥速度和体重数字\n如果用户主要讨论减肥、饮食、健身，则返回 ignore=true\n\
+            特别规则：\n以下情况视为健康问题而非心理问题：\n减肥\n减脂\n增肌\n健身\n体重\nBMI\n饮食安排\n热量控制\n只有出现以下内容才启动心理分析：\n\
+            焦虑\n压力\n崩溃\n情绪低落\n难过\n自责\n没动力\n不想活\n情绪问题\n \"陪伴语句\": \"我在这里陪着你\""
+        - id: eeb58094-66ac-4810-97b6-bda3be24feaa
+          role: user
+          text: '{{#1780239336212.text#}}'
+        selected: false
+        title: LLM 4
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1780239973713'
+      position:
+        x: 964
+        y: 524
+      positionAbsolute:
+        x: 964
+        y: 524
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        advanced_settings:
+          group_enabled: false
+          groups:
+          - groupId: 8532dab5-4a57-4799-bde5-3e8743e6f699
+            group_name: Group1
+            output_type: string
+            variables:
+            - - '1780239973713'
+              - text
+            - - '1780239959789'
+              - text
+            - - '1780239947214'
+              - text
+        output_type: string
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1780239973713'
+          - text
+        - - '1780239959789'
+          - text
+        - - '1780239947214'
+          - text
+      height: 159
+      id: '1780240567913'
+      position:
+        x: 1264
+        y: 370
+      positionAbsolute:
+        x: 1264
+        y: 370
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 审核
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 94a09583-6ab4-4617-b48a-422fcde198e5
+          role: system
+          text: '你是一个质量审核员。检查以下结论是否合理。
+
+
+            你只能检查安全问题。通过审核时，必须【原样返回】用户的原始输入内容，一个字都不要改。
+
+
+            如果没有提到心理和情绪问题就不许提到疾病！
+
+
+            审核维度：
+
+            1. 逻辑一致性：建议是否自相矛盾？
+
+            2. 安全性：建议是否可能伤害用户身心健康？
+
+            3. 冲突解决：如果检测到冲突，仲裁方案是否合理？
+
+            4. 完整性：是否遗漏了明显风险？
+
+
+            '
+        selected: false
+        title: LLM 5
+        type: llm
+        vision:
+          enabled: false
+      height: 115
+      id: '1780240778324'
+      position:
+        x: 1558.7768570385401
+        y: 370
+      positionAbsolute:
+        x: 1558.7768570385401
+        y: 370
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: dfe0702b-027a-468d-b85b-b58ae3d7f37a
+          role: system
+          text: '你是一名专业的健康与心理管理总顾问（Summary Agent）。
+
+            你的职责：
+
+            整合Agent的结果
+
+            输出统一、清晰、可执行的最终建议。
+
+
+            如果内容为正常，不进行修改。
+
+
+            工作原则：
+
+            提炼核心问题
+
+            保持温和、鼓励的语气
+
+            不进行医学诊断
+
+            不推荐药物治疗
+
+            不替代医生或心理咨询师
+
+            如果风险检测结果为：
+
+            【高风险】
+
+            则优先输出风险提醒，并降低减肥、运动等目标的优先级。
+
+            如果风险检测结果为：
+
+            【中风险】
+
+            则在方案中增加安全提醒。
+
+            如果风险检测结果为：
+
+            【安全】
+
+            则正常生成综合方案。
+
+
+
+            【鼓励的话】
+
+            用1~2句话给予积极、温和的支持。'
+        selected: false
+        title: LLM 6
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1780243492894'
+      position:
+        x: 1858.2611404720296
+        y: 370
+      positionAbsolute:
+        x: 1858.2611404720296
+        y: 370
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    - data:
+        outputs:
+        - value_selector:
+          - '1780243492894'
+          - text
+          value_type: string
+          variable: text
+        selected: false
+        title: 输出
+        type: end
+      height: 87
+      id: '1780243545915'
+      position:
+        x: 2159.2611404720296
+        y: 370
+      positionAbsolute:
+        x: 2159.2611404720296
+        y: 370
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 241
+    viewport:
+      x: -142.12722919964676
+      y: 95.82905813332673
+      zoom: 0.7578582832552011
+  rag_pipeline_variables: []
